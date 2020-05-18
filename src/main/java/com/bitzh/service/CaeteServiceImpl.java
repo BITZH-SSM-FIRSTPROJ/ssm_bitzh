@@ -18,7 +18,9 @@ public class CaeteServiceImpl implements CaeteService{
 
     @Override
     public List<Caete> selectAll() {
-        System.out.println("选取账户");
+
+        System.out.println("查询所有账户");
+        ceateDao.selectAll();
         return ceateDao.selectAll();
     }
 

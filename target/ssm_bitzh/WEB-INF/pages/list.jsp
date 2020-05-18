@@ -14,7 +14,7 @@
 <body>
 <h2>查询</h2>
 <c:forEach items="${list}" var="caete">
-    ${caete.name}
+    ${caete.cName}
 </c:forEach>
 </body>
 </html>

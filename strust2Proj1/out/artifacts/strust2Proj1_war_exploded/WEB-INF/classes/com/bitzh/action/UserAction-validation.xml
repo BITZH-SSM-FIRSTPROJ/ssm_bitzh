@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="user.username">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>用户名不能为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">10</param>
+			<param name="minLength">6</param>
+			<message>用户名长度须在${minLength}和${maxLength}之间</message>
+		</field-validator>
+	</field>
+	<field name="user.password">
+		<field-validator type="requiredstring">
+			<message>密码不能为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<message>密码长度必须大于等于 ${minLength}</message>
+		</field-validator>
+	</field>
+	<field name="repassword">
+		<field-validator type="requiredstring">
+			<message>确认密码不能为空</message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression">user.password==repassword</param>
+			<message>密码和确认密码必须相同</message>
+		</field-validator>
+	</field>
+	<field name="user.mobile">
+		<field-validator type="requiredstring">
+			<message>电话号码不能为空</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">^(\d{11})$</param>
+			<message>电话号码格式不正确</message>
+		</field-validator>
+	</field>
+
+	<field name="user.mail">
+		<field-validator type="requiredstring">
+			<message>邮箱不能为空</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">^(.+@.+)$</param>
+			<message>邮箱格式不正确，格式为hello@gmail.com</message>
+		</field-validator>
+	</field>
+	<field name="user.age">
+		<field-validator type="int">
+			<message>年龄不能为空</message>
+		</field-validator>
+	</field>			
+</validators>

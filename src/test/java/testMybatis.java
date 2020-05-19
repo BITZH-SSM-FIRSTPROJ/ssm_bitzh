@@ -26,7 +26,7 @@ public class testMybatis {
         for (Caete caete : list){
             System.out.println(caete);
         }
-
+        session.commit();
         session.close();
         in.close();
     }

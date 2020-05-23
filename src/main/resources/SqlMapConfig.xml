@@ -4,24 +4,23 @@
 
 
     <settings>
+        <!-- 打印sql语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 转换驼峰 -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+    <!-- 配置数据源，交给spring去做 -->
+    <typeAliases>
+        <package name="com.bitzh.domain"/>
+    </typeAliases>
 
-    <environments default="mysql">
-        <environment id="mysql">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql:///hungry_system?serverTimezone=UTC"/>
-                <property name="username" value="root"/>
-                <property name="password" value=""/>
-            </dataSource>
-        </environment>
-    </environments>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
 
     <mappers>
         <package name="com.bitzh.dao"/>
     </mappers>
-
 </configuration>

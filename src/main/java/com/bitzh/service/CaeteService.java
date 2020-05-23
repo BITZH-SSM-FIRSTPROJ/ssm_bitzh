@@ -1,26 +1,51 @@
 package com.bitzh.service;
 
-import com.bitzh.dao.CeateDao;
 import com.bitzh.domain.Caete;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 
 public interface CaeteService {
 
+    /**
+     * 增加菜品
+     * @param caete
+     * @return
+     */
+    int addCaete(Caete caete);
 
     /**
-     * 查询所有账户
+     * 删除菜品
+     * @param id
+     * @return
+     */
+    int deleteCaeteById(int id);
+
+    /**
+     * 更新菜品
+     * @param caete
+     * @return
+     */
+    int updateCaete(Caete caete);
+
+    /**
+     * 查询一个菜品
+     * @param id
+     * @return
+     */
+    Caete selectCaeteById(int id);
+
+    /**
+     * 查询全部菜品
      * @return
      */
     List<Caete> selectAll();
 
     /**
-     * 保存账户信息
-     * @param record
+     * 查询功能
+     * @param cName
      * @return
      */
-    public void saveAccount(Caete caete);
+    Caete findCaeteByName(@Param("cName") String cName);
 }

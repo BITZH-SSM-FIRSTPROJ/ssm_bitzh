@@ -26,7 +26,7 @@ public class Caete {
     }
 
     public void setcName(String cName) {
-        this.cName = cName == null ? null : cName.trim();
+        this.cName = cName;
     }
 
     public Integer getcCount() {
@@ -50,7 +50,7 @@ public class Caete {
     }
 
     public void setcWeight(String cWeight) {
-        this.cWeight = cWeight == null ? null : cWeight.trim();
+        this.cWeight = cWeight;
     }
 
     @Override

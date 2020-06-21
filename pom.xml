@@ -23,6 +23,8 @@
   </properties>
 
   <dependencies>
+
+    <!-- jsp+servlet -->
     <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
     <dependency>
       <groupId>org.aspectj</groupId>
@@ -44,6 +46,7 @@
       <version>1.2</version>
     </dependency>
 
+    <!-- 日志包 -->
     <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -61,6 +64,15 @@
       <scope>test</scope>
     </dependency>
 
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Mybatis包 -->
 
     <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
     <dependency>
@@ -83,13 +95,6 @@
       <version>0.9.5.5</version>
     </dependency>
 
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
 
     <dependency>
       <groupId>mysql</groupId>
@@ -164,6 +169,7 @@
   </dependencies>
 
   <build>
+    <!-- 配置maven过滤器 -->
     <resources>
       <resource>
         <directory>src/main/java</directory>

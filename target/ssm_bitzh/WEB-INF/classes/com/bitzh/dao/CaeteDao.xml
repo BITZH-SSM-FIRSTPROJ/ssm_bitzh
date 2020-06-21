@@ -4,8 +4,8 @@
 <mapper namespace="com.bitzh.dao.CaeteDao">
     <!-- 增加菜品 -->
     <insert id="addCaete" parameterType="Caete">
-        insert into t_caete (C_Name, C_Count, C_Price, C_Weight)
-        values (#{cName},#{cCount},#{cPrice},#{cWeight});
+        insert into t_caete (C_Name, C_Count, C_Price, C_Weight,C_Type)
+        values (#{cName},#{cCount},#{cPrice},#{cWeight},#{cType});
     </insert>
 
     <!-- 删除菜品 -->
@@ -17,7 +17,7 @@
     <!-- 更新菜品 -->
     <update id="updateCaete" parameterType="Caete">
         update t_caete
-        set C_Name = #{cName},C_Count = #{cCount},C_Price = #{cPrice},C_Weight = #{cWeight}
+        set C_Name = #{cName},C_Count = #{cCount},C_Price = #{cPrice},C_Weight = #{cWeight},C_Type = #{cType}
         where C_ID = #{cId};
     </update>
 
@@ -34,6 +34,6 @@
 
     <!-- 查询菜品 -->
     <select id="findCaeteByName" resultType="Caete">
-        select * from t_caete where C_Name = #{cName};
+        select * from t_caete where C_Name like CONCAT('%',#{cName},'%')
     </select>
 </mapper>

@@ -14,14 +14,14 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>菜品展示</h1>
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    <small>菜品列表</small>
+                    <small>菜品信息</small>
                 </h1>
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/admin/main">返回首页</a>
             </div>
         </div>
     </div>
@@ -53,6 +53,7 @@
                     <th>数量</th>
                     <th>价格</th>
                     <th>份量</th>
+                    <th>种类</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -63,6 +64,7 @@
                         <td>${caete.getcCount()}</td>
                         <td>${caete.getcPrice()}</td>
                         <td>${caete.getcWeight()}</td>
+                        <td>${caete.getcType()}</td>
                         <td>
                             <a class="btn btn-info" href="${pageContext.request.contextPath}/caete/toUpdate?id=${caete.getcId()}">更改</a> |
                             <a class="btn btn-danger" href="${pageContext.request.contextPath}/caete/deleteCaete/${caete.getcId()} ">删除</a>
@@ -72,25 +74,25 @@
                 </tbody>
             </table>
             <div class="column-md-6">
-            <nav aria-label="Page navigation">
-                <ul class="pagination pagination-centered">
-                    <li><a href="${pageContext.request.contextPath}/caete/allCaete?page=1&size=5">首页</a></li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageInfo.pageNum-1}&size=5" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <c:forEach begin="1" end="${pageInfo.pages}" var="pageNumber">
-                    <li><a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageNumber}&size=5">${pageNumber}</a></li>
-                    </c:forEach>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageInfo.pageNum+1}&size=5" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageInfo.pages}&size=5">尾页</a></li>
-                </ul>
-            </nav>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-centered">
+                        <li><a href="${pageContext.request.contextPath}/caete/allCaete?page=1&size=5">首页</a></li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageInfo.pageNum-1}&size=5" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <c:forEach begin="1" end="${pageInfo.pages}" var="pageNumber">
+                            <li><a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageNumber}&size=5">${pageNumber}</a></li>
+                        </c:forEach>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageInfo.pageNum+1}&size=5" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="${pageContext.request.contextPath}/caete/allCaete?page=${pageInfo.pages}&size=5">尾页</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

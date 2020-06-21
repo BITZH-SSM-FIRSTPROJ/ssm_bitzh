@@ -5,7 +5,9 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-
+/**
+ * @author coppolo
+ */
 public interface CaeteService {
 
     /**
@@ -47,5 +49,5 @@ public interface CaeteService {
      * @param cName
      * @return
      */
-    Caete findCaeteByName(@Param("cName") String cName);
+    List<Caete> findCaeteByName(@Param("cName") String cName);
 }

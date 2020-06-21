@@ -13,6 +13,8 @@ public class Caete {
 
     private String cWeight;
 
+    private String cType;
+
     public Integer getcId() {
         return cId;
     }
@@ -53,6 +55,14 @@ public class Caete {
         this.cWeight = cWeight;
     }
 
+    public String getcType() {
+        return cType;
+    }
+
+    public void setcType(String cType) {
+        this.cType = cType;
+    }
+
     @Override
     public String toString() {
         return "Caete{" +
@@ -61,6 +71,7 @@ public class Caete {
                 ", cCount=" + cCount +
                 ", cPrice=" + cPrice +
                 ", cWeight='" + cWeight + '\'' +
+                ", cType='" + cType + '\'' +
                 '}';
     }
 }

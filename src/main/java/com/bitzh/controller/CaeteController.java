@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author coppolo
+ */
 @Controller
 @RequestMapping("/caete")
 public class CaeteController {
@@ -25,7 +27,7 @@ public class CaeteController {
     private CaeteService caeteService;
 
     /**
-     * 查询全部书籍并返回页面
+     * 查询全部菜品并返回页面
      * @param model
      * @return
      */
@@ -79,7 +81,7 @@ public class CaeteController {
      */
     @RequestMapping("updateCaete")
     public String updateCaete(Caete caete){
-        System.out.println("修改书籍"+caete);
+        System.out.println("修改菜品"+caete);
         caeteService.updateCaete(caete);
         return "redirect:/caete/allCaete";
     }
@@ -95,18 +97,25 @@ public class CaeteController {
         return "redirect:/caete/allCaete";
     }
 
+    /**
+     * 分页模糊查询员工信息
+     * @param page
+     * @param findcaete
+     * @param model
+     * @return
+     */
     @RequestMapping("/find")
-    public String findCaete(String findcaete,Model model){
-        Caete caete = caeteService.findCaeteByName(findcaete);
-        List<Caete> list = new ArrayList<>();
-        list.add(caete);
+    public String findCaete(@RequestParam(defaultValue = "1",value = "page") Integer page,String findcaete,Model model){
+        PageHelper.startPage(page, 5);
+        List<Caete> list = caeteService.findCaeteByName(findcaete);
+        PageInfo pageinfo = new PageInfo(list);
 
-        if(caete == null){
+        if(list == null){
             list = caeteService.selectAll();
             model.addAttribute("error","没有该类菜品");
         }
 
-
+        model.addAttribute("pageInfo", pageinfo);
         model.addAttribute("list",list);
         return "allCaete";
     }

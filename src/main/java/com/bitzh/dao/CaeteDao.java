@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author coppolo
+ */
 @Repository
 public interface CaeteDao {
     /**
@@ -49,5 +52,5 @@ public interface CaeteDao {
      * @param cName
      * @return
      */
-    Caete findCaeteByName(@Param("cName") String cName);
+    List<Caete> findCaeteByName(@Param("cName") String cName);
 }
